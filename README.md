@@ -25,6 +25,8 @@ The dataset simulates real-world pizza sales data and includes the following tab
 
 ## 🧾 Schema
 
+### Creating Table.
+
 ```sql
 -- Sample schema creation
 CREATE TABLE customers (

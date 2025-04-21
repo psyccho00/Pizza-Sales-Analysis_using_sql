@@ -143,16 +143,6 @@ ORDER BY Order_Count DESC;
 
 *Insight:* Identifies the most active days, assisting in scheduling and resource allocation.
 
-## 📊 Key Findings
-
-- **Total Revenue:** $X,XXX.XX
-- **Average Order Value:** $XX.XX
-- **Top-Selling Pizza:** [Pizza Name]
-- **Most Popular Size:** [Size]
-- **Peak Sales Hour:** [Hour]
-- **Busiest Day:** [Day]
-
-*Note: Replace placeholders with actual results after running the queries.*
 
 ## 🛠️ Tools Used
 
@@ -165,7 +155,7 @@ ORDER BY Order_Count DESC;
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/pizza-sales-sql.git
+   git clone https://github.com/psyccho00/Pizza-Sales-Analysis_using_sql.git
    cd pizza-sales-sql
    ```
 
@@ -173,14 +163,5 @@ ORDER BY Order_Count DESC;
 
 3. Execute the queries provided in the analysis section to explore the data.
 
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
-
----
 
 *Happy Analyzing! 🍕*

@@ -119,7 +119,9 @@ GROUP BY 2,1
 ORDER BY 3 DESC LIMIT 1;
 ```
 
--- 5. List the top 5 most ordered pizza types along with their quantities.
+### 5. List the top 5 most ordered pizza types along with their quantities.
+
+```sql
 SELECT
 	pi.pizza_type_id AS pizza_type,
 	pi.size AS size,
@@ -129,28 +131,34 @@ JOIN pizzas as pi
 ON od.pizza_id = pi.pizza_id
 GROUP BY 2,1
 ORDER BY 3 DESC LIMIT 5;
+```
 
+### Intermediate:
+### 6. Determine the distribution of orders by hour of the day.
 
--- Intermediate:
--- 6. Determine the distribution of orders by hour of the day.
+```sql
 SELECT 
 	 EXTRACT(HOUR FROM order_time) as hour,
 	 COUNT(order_id)	 
 FROM orders
 group by 1
 order by 1 ;
+```
 
+### 7. Join relevant tables to find the category-wise distribution of pizzas.
 
--- 7. Join relevant tables to find the category-wise distribution of pizzas.
+```sql
 SELECT
 	category,
 	COUNT(name)
 FROM pizza_types
 GROUP BY 1 
 ORDER BY 2 DESC;
+```
 
+### 8. Group the orders by date and calculate the average number of pizzas ordered per day.
 
--- 8. Group the orders by date and calculate the average number of pizzas ordered per day.
+```sql
 SELECT
 	ROUND(AVG(summ),2) AS Average
 	FROM(
@@ -161,9 +169,11 @@ FROM order_details AS od
 JOIN orders AS ord
 ON od.order_id = ord.order_id
 GROUP BY 1) AS t1; 
+```
 
+### 9. Determine the top 3 most ordered pizza types based on revenue.
 
--- 9. Determine the top 3 most ordered pizza types based on revenue.
+```sql
 SELECT
 	pi.pizza_type_id,
 	SUM(pi.price*od.quantity) AS revenue
@@ -172,10 +182,12 @@ JOIN order_details AS od
 ON pi.pizza_id = od.pizza_id
 GROUP BY 1
 ORDER BY 2 DESC LIMIT 3;
-
+```
 	
--- Advanced:
--- 10. Calculate the percentage contribution of each pizza type to total revenue.
+### Advanced:
+### 10. Calculate the percentage contribution of each pizza type to total revenue.
+
+```sql
 SELECT
 	pi.pizza_type_id,
 	(SUM(pi.price*od.quantity)/(SELECT
@@ -188,9 +200,11 @@ JOIN order_details AS od
 ON pi.pizza_id = od.pizza_id
 GROUP BY 1
 ORDER BY 2 DESC;
+```
 
+### 11. Analyze the cumulative revenue generated over time.
 
--- 11. Analyze the cumulative revenue generated over time.
+```sql
 SELECT 
 	order_date,
 	SUM(revenue) OVER(ORDER BY order_date) as cum_revenue
@@ -204,9 +218,11 @@ ON pi.pizza_id = od.pizza_id
 JOIN orders as ord
 ON ord.order_id = od.order_id
 GROUP BY 1) AS t1;
+```
 
+### 12. Determine the top 3 most ordered pizza types based on revenue for each pizza category.
 
--- 12. Determine the top 3 most ordered pizza types based on revenue for each pizza category.
+```sql
 SELECT
 	name,
 	revenue
@@ -230,7 +246,7 @@ FROM(
 	)	AS t1 
 )	AS t2
 WHERE rn <=3;
-
+```
 
 
 ## 🛠️ Tools Used
@@ -251,6 +267,13 @@ WHERE rn <=3;
 2. Import the `pizza_sales.sql` file into your SQL database.
 
 3. Execute the queries provided in the analysis section to explore the data.
+
+
+## 👨‍💻 Author
+
+Made by [@psyccho00](https://github.com/psyccho00)
+
+If you liked this, please ⭐ the repo!
 
 
 *Happy Analyzing! 🍕*

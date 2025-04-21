@@ -1,6 +1,6 @@
-
 # 🍕 Pizza Sales Data Analysis Using SQL
 
+![](https://github.com/psyccho00/Pizza-Sales-Analysis_using_sql/blob/main/pizza.png)
 
 ## 📌 Overview
 
